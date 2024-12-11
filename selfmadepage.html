@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Ghana</title>
+    <link rel="stylesheet" href="styles.css">
+    <section id="culture"></section>
+    <style>
+        nav {
+            background-color: #228B22; /* Forest green background */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline; /* Horizontally aligned links */
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white; /* White text */
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #006400; /* Dark green on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Ghana</h1>
+        <p>Experience the culture, beauty, and heritage of Ghana.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Professional Portfolio</a></li>
+                <li><a href="game.html">World Travel Game</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Unordered list embedded in an ordered list -->
+        <h2>Discover Our Culture</h2>
+        <ol>
+            <li>Festivals
+                <ul>
+                    <li>Homowo Festival</li>
+                    <li>Aboakyer Festival</li>
+                    <li>Chale Wote Street Art Festival</li>
+                </ul>
+            </li>
+            <li>Traditional Food
+                <ul>
+                    <li>Jollof Rice</li>
+                    <li>Fufu</li>
+                    <li>Kelewele</li>
+                </ul>
+            </li>
+        </ol>
+        </section>
+
+        <!-- Image -->
+        <section id="landscape">
+            <h2>Beautiful Landscapes</h2>
+            <img src="https://mediaim.expedia.com/destination/1/be0ad25550296ffd601bb7d3dd6e3807.jpg" alt="Beautiful Landscape in Ghana" width="600">
+        </section>
+
+        <!-- Embedded YouTube video -->
+        <section id="video">
+            <h2>Why Visit Ghana?</h2>
+            <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/UnPiopNCD78" 
+                    title="Promotional Video About Ghana" 
+                    frameborder="0" allowfullscreen>
+            </iframe>
+        </section>
+
+        <!-- Embedded Tableau visualization -->
+        <section id="data">
+            <h2>Interactive Data</h2>
+            <div class='tableauPlaceholder' id='viz1733857874319' style='position: relative'>
+                <noscript>
+                    <a href='#'>
+                        <img alt='Worldwide Language Devi Arnita (2)' src='https://public.tableau.com/static/images/9Q/9Q293KP27/1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='path' value='shared/9Q293KP27' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https://public.tableau.com/static/images/9Q/9Q293KP27/1.png' />
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='en-US' />
+                </object>
+            </div>
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1733857874319');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                if (divElement.offsetWidth > 800) {
+                    vizElement.style.width = '1469px';
+                    vizElement.style.height = '1154px';
+                } else if (divElement.offsetWidth > 500) {
+                    vizElement.style.width = '1469px';
+                    vizElement.style.height = '1154px';
+                } else {
+                    vizElement.style.width = '100%';
+                    vizElement.style.height = '1327px';
+                }
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+        </section>
+
+    <!-- On-page anchor -->
+    <footer>
+        <p><a href="#culture">Back to Culture</a></p>
+        <p>&copy; 2024 Discover Ghana</p>
+    </footer>
+</body>
+
+</html>

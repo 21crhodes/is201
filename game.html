@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Dreamer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background-color: #0066cc;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+        }
+        .destination {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .destination img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .btn {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #004d99;
+        }
+        .game {
+            margin-top: 20px;
+        }
+        .sand-pile {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #FFD700;
+            margin: 10px;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+        .memory-card {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            background-color: #aaa;
+            border: 1px solid #666;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Back to Discover Ghana link styling */
+        .back-link {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0066cc; /* Blue background */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .back-link:hover {
+            background-color: #004d99; /* Darker blue on hover */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Travel Dreamer</h1>
+        <p>Pick a type of destination and discover your next dream getaway!</p>
+    </header>
+    <div class="container">
+        <button class="btn" onclick="generateDestination('beach')">Beach</button>
+        <button class="btn" onclick="generateDestination('mountains')">Mountains</button>
+        <button class="btn" onclick="generateDestination('city')">City</button>
+
+        <div id="destination" class="destination">
+            <h2 id="dest-title"></h2>
+            <img id="dest-image" src="" alt="Destination Image">
+            <p id="dest-description"></p>
+            <p><strong>Why Visit:</strong> <span id="dest-reason"></span></p>
+            <div id="game" class="game"></div>
+        </div>
+    </div>
+
+    <!-- Back to Discover Ghana link -->
+    <a href="selfmadepage.html" class="back-link">Back to Discover Ghana</a>
+
+    <script>
+        const destinations = {
+            beach: {
+                title: "Beach Paradise",
+                image: "https://escales.ponant.com/wp-content/uploads/2020/12/plage.jpg",
+                description: "Relax by the serene waves and enjoy golden sunsets.",
+                reason: "Beaches are perfect for unwinding and connecting with nature."
+            },
+            mountains: {
+                title: "Mountain Escape",
+                image: "https://hips.hearstapps.com/hmg-prod/images/alpe-di-siusi-sunrise-with-sassolungo-or-langkofel-royalty-free-image-1623254127.jpg",
+                description: "Find adventure and tranquility amidst towering peaks.",
+                reason: "Mountains offer breathtaking views and a sense of accomplishment."
+            },
+            city: {
+                title: "Urban Adventure",
+                image: "https://deih43ym53wif.cloudfront.net/hong-kong-sunrise-skyline-shutterstock_549687475.jpg_31b44458cb.jpg",
+                description: "Explore vibrant streets and immerse yourself in culture.",
+                reason: "Cities combine history, innovation, and endless activities."
+            }
+        };
+
+        function generateDestination(type) {
+            const selectedDestination = destinations[type];
+
+            document.getElementById("dest-title").textContent = selectedDestination.title;
+            document.getElementById("dest-image").src = selectedDestination.image;
+            document.getElementById("dest-description").textContent = selectedDestination.description;
+            document.getElementById("dest-reason").textContent = selectedDestination.reason;
+
+            const body = document.body;
+            if (type === "beach") {
+                body.style.background = "linear-gradient(to bottom, #FFD700, #87CEEB)";
+                loadBeachGame();
+            } else if (type === "mountains") {
+                body.style.background = "linear-gradient(to bottom, #2E8B57, #B0E0E6)";
+                loadMountainGame();
+            } else if (type === "city") {
+                body.style.background = "linear-gradient(to bottom, #696969, #D3D3D3)";
+                loadCityGame();
+            }
+
+            document.getElementById("destination").style.display = "block";
+        }
+
+        function loadBeachGame() {
+            const gameContainer = document.getElementById("game");
+            gameContainer.innerHTML = "<h3>Find the Hidden Treasure!</h3>";
+            for (let i = 0; i < 5; i++) {
+                const sandPile = document.createElement("div");
+                sandPile.className = "sand-pile";
+                sandPile.onclick = () => {
+                    const isTreasure = Math.random() < 0.2;
+                    alert(isTreasure ? "You found the treasure!" : "Keep looking!");
+                };
+                gameContainer.appendChild(sandPile);
+            }
+        }
+
+        function loadMountainGame() {
+            const gameContainer = document.getElementById("game");
+            gameContainer.innerHTML = "<h3>Mountain Trivia</h3>";
+            gameContainer.innerHTML += "<p>Which is the tallest mountain in the world?</p>";
+            gameContainer.innerHTML += "<button onclick=\"alert('Correct! It\'s Mount Everest!')\">Mount Everest</button>";
+            gameContainer.innerHTML += "<button onclick=\"alert('Good guess, but no.')\">K2</button>";
+            gameContainer.innerHTML += "<button onclick=\"alert('Try again! It\'s much taller.')\">Denali</button>";
+            gameContainer.innerHTML += "<button onclick=\"alert('Close, but no!')\">Makalu</button>";
+        }
+
+        function loadCityGame() {
+            const gameContainer = document.getElementById("game");
+            gameContainer.innerHTML = "<h3>Urban Memory Game</h3>";
+            const pairs = ['🚌', '🚇', '🏙️', '🌉', '🛣️'];
+            const cards = [...pairs, ...pairs].sort(() => Math.random() - 0.5);
+
+            let firstCard = null;
+            let matched = 0;
+
+            cards.forEach((symbol, index) => {
+                const card = document.createElement("div");
+                card.className = "memory-card";
+                card.dataset.symbol = symbol;
+                card.onclick = () => {
+                    if (card.textContent || firstCard === card) return;
+                    card.textContent = symbol;
+
+                    if (!firstCard) {
+                        firstCard = card;
+                    } else {
+                        if (firstCard.dataset.symbol === symbol) {
+                            matched++;
+                            firstCard = null;
+                            if (matched === pairs.length) {
+                                alert("You matched all pairs!");
+                            }
+                        } else {
+                            setTimeout(() => {
+                                firstCard.textContent = "";
+                                card.textContent = "";
+                                firstCard = null;
+                            }, 800);
+                        }
+                    }
+                };
+                gameContainer.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
